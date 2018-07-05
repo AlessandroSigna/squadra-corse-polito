@@ -38,6 +38,11 @@ ModelImporter:
     400030: space for logo
     400032: steering wheel
     2100000: '-'
+    2100002: SeatMaterial
+    2100004: Mat
+    2100006: Cinture
+    2100008: TuboInterno
+    2100010: TuboInterno.001
     2300000: anteriore
     2300002: centrale
     2300004: external wheel
@@ -87,7 +92,12 @@ ModelImporter:
     4300028: external wheel
     4300030: centrale
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cinture
+    second: {fileID: 2100000, guid: 075ce17c7a1c0f8419b21dec978bf994, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -106,7 +116,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
