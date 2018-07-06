@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: aebf41a57fae75a4e8c4ceb9f92daff3
+timeCreated: 1530863789
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: anteriore
+    100002: //RootNode
+    100004: centrale
+    100006: external_wheel
+    100008: forcella
+    100010: internalwheel1
+    100012: internalwheel2
+    100014: laterale
+    100016: posteriore
+    100018: residui1
+    100020: residui2
+    100022: residui3
+    100024: residui4
+    100026: sabelt
+    100028: seat
+    100030: space_for_logo
+    100032: steering_wheel
+    400000: anteriore
+    400002: //RootNode
+    400004: centrale
+    400006: external_wheel
+    400008: forcella
+    400010: internalwheel1
+    400012: internalwheel2
+    400014: laterale
+    400016: posteriore
+    400018: residui1
+    400020: residui2
+    400022: residui3
+    400024: residui4
+    400026: sabelt
+    400028: seat
+    400030: space_for_logo
+    400032: steering_wheel
+    2100000: Mat
+    2100002: TuboInterno
+    2100004: TuboInterno_001
+    2100006: Cinture
+    2100008: Seduta
+    2300000: anteriore
+    2300002: centrale
+    2300004: external_wheel
+    2300006: forcella
+    2300008: internalwheel1
+    2300010: internalwheel2
+    2300012: laterale
+    2300014: posteriore
+    2300016: residui1
+    2300018: residui2
+    2300020: residui3
+    2300022: residui4
+    2300024: sabelt
+    2300026: seat
+    2300028: space_for_logo
+    2300030: steering_wheel
+    3300000: anteriore
+    3300002: centrale
+    3300004: external_wheel
+    3300006: forcella
+    3300008: internalwheel1
+    3300010: internalwheel2
+    3300012: laterale
+    3300014: posteriore
+    3300016: residui1
+    3300018: residui2
+    3300020: residui3
+    3300022: residui4
+    3300024: sabelt
+    3300026: seat
+    3300028: space_for_logo
+    3300030: steering_wheel
+    4300000: centrale
+    4300002: external_wheel
+    4300004: anteriore
+    4300006: laterale
+    4300008: posteriore
+    4300010: steering_wheel
+    4300012: space_for_logo
+    4300014: sabelt
+    4300016: seat
+    4300018: residui1
+    4300020: residui2
+    4300022: forcella
+    4300024: residui3
+    4300026: residui4
+    4300028: internalwheel1
+    4300030: internalwheel2
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

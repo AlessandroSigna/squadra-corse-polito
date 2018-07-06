@@ -43,6 +43,7 @@ ModelImporter:
     2100006: Cinture
     2100008: TuboInterno
     2100010: TuboInterno.001
+    2100012: Seduta
     2300000: anteriore
     2300002: centrale
     2300004: external wheel
@@ -98,6 +99,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Cinture
     second: {fileID: 2100000, guid: 075ce17c7a1c0f8419b21dec978bf994, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TuboInterno
+    second: {fileID: 2100000, guid: 41cdb259f2f92914e91373708b262281, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TuboInterno.001
+    second: {fileID: 2100000, guid: 41cdb259f2f92914e91373708b262281, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
