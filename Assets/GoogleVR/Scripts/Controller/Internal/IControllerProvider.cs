@@ -12,7 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
+// The controller is not available for versions of Unity without the
+// // GVR native integration.
+#if UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
 
 /// @cond
 namespace Gvr.Internal {
@@ -22,14 +24,7 @@ namespace Gvr.Internal {
   /// For example, if running on the Unity Editor, we use an implementation that
   /// communicates with the controller emulator via USB or WiFi. If running on a real
   /// Android device, we use an implementation that uses the underlying Daydream controller API.
-  interface IControllerProvider : IDisposable {
-    /// True if controller has battery status support.
-    bool SupportsBatteryStatus { get; }
-
-    /// Reads the number of controllers the system is configured to use.  This does not
-    /// indicate the number of currently connected controllers.
-    int MaxControllerCount { get; }
-
+  interface IControllerProvider {
     /// Notifies the controller provider that the application has paused.
     void OnPause();
 
@@ -37,8 +32,9 @@ namespace Gvr.Internal {
     void OnResume();
 
     /// Reads the controller's current state and stores it in outState.
-    void ReadState(ControllerState outState, int controller_id);
+    void ReadState(ControllerState outState);
   }
 }
 /// @endcond
 
+#endif  // UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squadra-corse-oldv", "squadra-corse-oldv.csproj", "{42CDF636-0D72-1289-0452-FD33299EEF0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squadra-corse-oldv.Editor", "squadra-corse-oldv.Editor.csproj", "{1D548C88-6DCD-F0F4-D2C8-D960BEBF9FF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42CDF636-0D72-1289-0452-FD33299EEF0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42CDF636-0D72-1289-0452-FD33299EEF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42CDF636-0D72-1289-0452-FD33299EEF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42CDF636-0D72-1289-0452-FD33299EEF0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D548C88-6DCD-F0F4-D2C8-D960BEBF9FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D548C88-6DCD-F0F4-D2C8-D960BEBF9FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D548C88-6DCD-F0F4-D2C8-D960BEBF9FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D548C88-6DCD-F0F4-D2C8-D960BEBF9FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

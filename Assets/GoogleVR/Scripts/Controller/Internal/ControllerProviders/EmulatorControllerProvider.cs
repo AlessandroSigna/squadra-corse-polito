@@ -9,12 +9,12 @@
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
+// See the License for the specific language governing permissioßns and
 // limitations under the License.
 
-// This class is only used in the Editor, so make sure to only compile it on that platform.
-// Additionally, it depends on EmulatorManager which is only compiled in the editor.
-#if UNITY_EDITOR
+// The controller is not available for versions of Unity without the
+// // GVR native integration.
+#if UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
 
 using UnityEngine;
 
@@ -32,20 +32,13 @@ namespace Gvr.Internal {
 
     /// The last (uncorrected) orientation received from the emulator.
     private Quaternion lastRawOrientation = Quaternion.identity;
-    private GvrControllerButton lastButtonsState;
-
-    public bool SupportsBatteryStatus {
-      get { return true; }
-    }
-    public int MaxControllerCount {
-      get { return 1; }
-    }
 
     /// Creates a new EmulatorControllerProvider with the specified settings.
-    internal EmulatorControllerProvider(GvrControllerInput.EmulatorConnectionMode connectionMode) {
-      if (connectionMode == GvrControllerInput.EmulatorConnectionMode.USB) {
+    internal EmulatorControllerProvider(GvrController.EmulatorConnectionMode connectionMode,
+          bool enableGyro, bool enableAccel) {
+      if (connectionMode == GvrController.EmulatorConnectionMode.USB) {
         EmulatorConfig.Instance.PHONE_EVENT_MODE = EmulatorConfig.Mode.USB;
-      } else if (connectionMode == GvrControllerInput.EmulatorConnectionMode.WIFI) {
+      } else if (connectionMode == GvrController.EmulatorConnectionMode.WIFI) {
         EmulatorConfig.Instance.PHONE_EVENT_MODE = EmulatorConfig.Mode.WIFI;
       } else {
         EmulatorConfig.Instance.PHONE_EVENT_MODE = EmulatorConfig.Mode.OFF;
@@ -54,32 +47,20 @@ namespace Gvr.Internal {
       EmulatorManager.Instance.touchEventListeners += HandleTouchEvent;
       EmulatorManager.Instance.orientationEventListeners += HandleOrientationEvent;
       EmulatorManager.Instance.buttonEventListeners += HandleButtonEvent;
-      EmulatorManager.Instance.gyroEventListeners += HandleGyroEvent;
-      EmulatorManager.Instance.accelEventListeners += HandleAccelEvent;
+
+      if (enableGyro) {
+        EmulatorManager.Instance.gyroEventListeners += HandleGyroEvent;
+      }
+
+      if (enableAccel) {
+        EmulatorManager.Instance.accelEventListeners += HandleAccelEvent;
+      }
     }
 
-    public void Dispose() {}
-
-    public void ReadState(ControllerState outState, int controller_id) {
-      if (controller_id != 0) {
-        return;
-      }
+    public void ReadState(ControllerState outState) {
       lock (state) {
-        state.connectionState = GvrConnectionState.Connected;
-        if (!EmulatorManager.Instance.Connected) {
-          state.connectionState = EmulatorManager.Instance.Connecting ?
-              GvrConnectionState.Connecting : GvrConnectionState.Disconnected;
-        }
-        state.apiStatus = EmulatorManager.Instance.Connected ? GvrControllerApiStatus.Ok :
-            GvrControllerApiStatus.Unavailable;
-
-        // During emulation, just assume the controller is fully charged
-        state.isCharging = false;
-        state.batteryLevel = GvrControllerBatteryLevel.Full;
-
-        state.SetButtonsUpDownFromPrevious(lastButtonsState);
-        lastButtonsState = state.buttonsState;
-
+        state.connectionState = EmulatorManager.Instance.Connected ? GvrConnectionState.Connected :
+            GvrConnectionState.Connecting;
         outState.CopyFrom(state);
       }
       state.ClearTransientState();
@@ -96,13 +77,15 @@ namespace Gvr.Internal {
         state.touchPos = new Vector2(pointer.normalizedX, pointer.normalizedY);
         switch (touchEvent.getActionMasked()) {
           case EmulatorTouchEvent.Action.kActionDown:
-            state.buttonsState |= GvrControllerButton.TouchPadTouch;
+            state.touchDown = true;
+            state.isTouching = true;
             break;
           case EmulatorTouchEvent.Action.kActionMove:
-            state.buttonsState |= GvrControllerButton.TouchPadTouch;
+            state.isTouching = true;
             break;
           case EmulatorTouchEvent.Action.kActionUp:
-            state.buttonsState &= ~GvrControllerButton.TouchPadTouch;
+            state.isTouching = false;
+            state.touchUp = true;
             break;
         }
       }
@@ -120,30 +103,31 @@ namespace Gvr.Internal {
     }
 
     private void HandleButtonEvent(EmulatorButtonEvent buttonEvent) {
-      GvrControllerButton buttonMask = 0;
-      switch (buttonEvent.code) {
-      case EmulatorButtonEvent.ButtonCode.kApp:
-        buttonMask = GvrControllerButton.App;
-        break;
-      case EmulatorButtonEvent.ButtonCode.kHome:
-        buttonMask = GvrControllerButton.System;
-        break;
-      case EmulatorButtonEvent.ButtonCode.kClick:
-        buttonMask = GvrControllerButton.TouchPadButton;
-        break;
-      }
-      if (buttonMask != 0) {
-        lock (state) {
-          state.buttonsState &= ~buttonMask;
-          if (buttonEvent.down) {
-            state.buttonsState |= buttonMask;
+      if (buttonEvent.code == EmulatorButtonEvent.ButtonCode.kHome) {
+        if (buttonEvent.down) {
+          lock (state) {
+            // Started the recentering gesture.
+            state.recentering = true;
           }
+        } else {
+          // Finished the recentering gesture. Recenter controller.
+          Recenter();
         }
-        if (buttonMask == GvrControllerButton.System) {
-          if (!buttonEvent.down) {
-            // Finished the recentering gesture. Recenter controller.
-            Recenter();
-          }
+        return;
+      }
+
+      if (buttonEvent.code != EmulatorButtonEvent.ButtonCode.kApp &&
+          buttonEvent.code != EmulatorButtonEvent.ButtonCode.kClick) return;
+
+      lock (state) {
+        if (buttonEvent.code == EmulatorButtonEvent.ButtonCode.kApp) {
+          state.appButtonState = buttonEvent.down;
+          state.appButtonDown = buttonEvent.down;
+          state.appButtonUp = !buttonEvent.down;
+        } else {
+          state.clickButtonState = buttonEvent.down;
+          state.clickButtonDown = buttonEvent.down;
+          state.clickButtonUp = !buttonEvent.down;
         }
       }
     }
@@ -181,6 +165,7 @@ namespace Gvr.Internal {
         // to undo the current rotation's yaw.
         yawCorrection = Quaternion.AngleAxis(-lastRawOrientation.eulerAngles.y, Vector3.up);
         state.orientation = Quaternion.identity;
+        state.recentering = false;
         state.recentered = true;
       }
     }
@@ -188,4 +173,4 @@ namespace Gvr.Internal {
 }
 /// @endcond
 
-#endif  // UNITY_EDITOR
+#endif  // UNITY_HAS_GOOGLEVR && (UNITY_ANDROID || UNITY_EDITOR)
