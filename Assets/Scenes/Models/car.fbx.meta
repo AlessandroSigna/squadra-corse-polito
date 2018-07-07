@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 4810d2167bda843d3912cf3f7550f3c5
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: anteriore
     100002: //RootNode
@@ -20,6 +20,10 @@ ModelImporter:
     100028: seat
     100030: space for logo
     100032: steering wheel
+    100034: internalwheel1_MeshPart0
+    100036: internalwheel1_MeshPart1
+    100038: internalwheel2_MeshPart0
+    100040: internalwheel2_MeshPart1
     400000: anteriore
     400002: //RootNode
     400004: centrale
@@ -37,6 +41,10 @@ ModelImporter:
     400028: seat
     400030: space for logo
     400032: steering wheel
+    400034: internalwheel1_MeshPart0
+    400036: internalwheel1_MeshPart1
+    400038: internalwheel2_MeshPart0
+    400040: internalwheel2_MeshPart1
     2100000: '-'
     2100002: SeatMaterial
     2100004: Mat
@@ -61,6 +69,10 @@ ModelImporter:
     2300026: seat
     2300028: space for logo
     2300030: steering wheel
+    2300032: internalwheel1_MeshPart0
+    2300034: internalwheel1_MeshPart1
+    2300036: internalwheel2_MeshPart0
+    2300038: internalwheel2_MeshPart1
     3300000: anteriore
     3300002: centrale
     3300004: external wheel
@@ -77,6 +89,10 @@ ModelImporter:
     3300026: seat
     3300028: space for logo
     3300030: steering wheel
+    3300032: internalwheel1_MeshPart0
+    3300034: internalwheel1_MeshPart1
+    3300036: internalwheel2_MeshPart0
+    3300038: internalwheel2_MeshPart1
     4300000: internalwheel2
     4300002: internalwheel1
     4300004: residui4
@@ -93,53 +109,33 @@ ModelImporter:
     4300026: anteriore
     4300028: external wheel
     4300030: centrale
+    4300032: internalwheel2_MeshPart0
+    4300034: internalwheel2_MeshPart1
+    4300036: internalwheel1_MeshPart0
+    4300038: internalwheel1_MeshPart1
+    4300040: forcella_MeshPart0
+    4300042: centrale_MeshPart0
     2186277476908879412: ImportLogs
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cinture
-    second: {fileID: 2100000, guid: 075ce17c7a1c0f8419b21dec978bf994, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TuboInterno
-    second: {fileID: 2100000, guid: 41cdb259f2f92914e91373708b262281, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TuboInterno.001
-    second: {fileID: 2100000, guid: 41cdb259f2f92914e91373708b262281, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: carrozzeria
-    second: {fileID: 2100000, guid: a3eeb1e002ea34518bda19ea929a5c89, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -147,18 +143,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -168,7 +159,6 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 1
     tangentImportMode: 3
-    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

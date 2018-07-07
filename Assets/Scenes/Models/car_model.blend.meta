@@ -3,7 +3,7 @@ guid: aebf41a57fae75a4e8c4ceb9f92daff3
 timeCreated: 1530863789
 licenseType: Pro
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: anteriore
     100002: //RootNode
@@ -22,6 +22,8 @@ ModelImporter:
     100028: seat
     100030: space_for_logo
     100032: steering_wheel
+    100034: internalwheel2_MeshPart0
+    100036: internalwheel2_MeshPart1
     400000: anteriore
     400002: //RootNode
     400004: centrale
@@ -39,6 +41,8 @@ ModelImporter:
     400028: seat
     400030: space_for_logo
     400032: steering_wheel
+    400034: internalwheel2_MeshPart0
+    400036: internalwheel2_MeshPart1
     2100000: Mat
     2100002: TuboInterno
     2100004: TuboInterno_001
@@ -61,6 +65,8 @@ ModelImporter:
     2300026: seat
     2300028: space_for_logo
     2300030: steering_wheel
+    2300032: internalwheel2_MeshPart0
+    2300034: internalwheel2_MeshPart1
     3300000: anteriore
     3300002: centrale
     3300004: external_wheel
@@ -77,6 +83,8 @@ ModelImporter:
     3300026: seat
     3300028: space_for_logo
     3300030: steering_wheel
+    3300032: internalwheel2_MeshPart0
+    3300034: internalwheel2_MeshPart1
     4300000: centrale
     4300002: external_wheel
     4300004: anteriore
@@ -93,34 +101,34 @@ ModelImporter:
     4300026: residui4
     4300028: internalwheel1
     4300030: internalwheel2
+    4300032: internalwheel2_MeshPart0
+    4300034: internalwheel2_MeshPart1
+    4300036: internalwheel1_MeshPart0
+    4300038: residui4_MeshPart0
+    4300040: forcella_MeshPart0
+    4300042: centrale_MeshPart0
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -128,18 +136,13 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -149,7 +152,6 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
