@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squadra-corse-polito", "Assembly-CSharp.csproj", "{36838E49-A2EF-7C1C-3E4F-F9D25E7E55ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "squadra-corse-polito", "Assembly-CSharp-Editor.csproj", "{24BD253B-550F-672F-9068-64E97E1D013B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36838E49-A2EF-7C1C-3E4F-F9D25E7E55ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36838E49-A2EF-7C1C-3E4F-F9D25E7E55ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36838E49-A2EF-7C1C-3E4F-F9D25E7E55ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36838E49-A2EF-7C1C-3E4F-F9D25E7E55ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24BD253B-550F-672F-9068-64E97E1D013B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24BD253B-550F-672F-9068-64E97E1D013B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24BD253B-550F-672F-9068-64E97E1D013B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24BD253B-550F-672F-9068-64E97E1D013B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
