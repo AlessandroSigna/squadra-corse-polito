@@ -17,7 +17,7 @@ public class StartSliderManager : MonoBehaviour {
 
         if (slider.value >= 1)
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene(1);
         }
     }
 }
